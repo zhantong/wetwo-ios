@@ -12,6 +12,10 @@
 		21391DEB1F6BAF5C00893B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21391DE91F6BAF5C00893B47 /* Main.storyboard */; };
 		21391DED1F6BAF5C00893B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21391DEC1F6BAF5C00893B47 /* Assets.xcassets */; };
 		21391DF01F6BAF5C00893B47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21391DEE1F6BAF5C00893B47 /* LaunchScreen.storyboard */; };
+		21391DF81F6BB12A00893B47 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */; };
+		21391DFB1F6BB19500893B47 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */; };
+		21391DFC1F6BB19500893B47 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */; };
+		976226B7FC70950D824A709C /* Pods_WeTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05284AAF95C1C88996406D1 /* Pods_WeTwo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,12 @@
 		21391DEC1F6BAF5C00893B47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21391DEF1F6BAF5C00893B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21391DF11F6BAF5C00893B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
+		21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
+		37D16AF5CFB4FDE9D9E9BF5E /* Pods-WeTwo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeTwo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeTwo/Pods-WeTwo.debug.xcconfig"; sourceTree = "<group>"; };
+		B05284AAF95C1C88996406D1 /* Pods_WeTwo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeTwo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBCFB658A639C25974446ACE /* Pods-WeTwo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeTwo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeTwo/Pods-WeTwo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				976226B7FC70950D824A709C /* Pods_WeTwo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F6C402F1498716ADC73E23E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37D16AF5CFB4FDE9D9E9BF5E /* Pods-WeTwo.debug.xcconfig */,
+				EBCFB658A639C25974446ACE /* Pods-WeTwo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		21391DD91F6BAF5C00893B47 = {
 			isa = PBXGroup;
 			children = (
 				21391DE41F6BAF5C00893B47 /* WeTwo */,
 				21391DE31F6BAF5C00893B47 /* Products */,
+				0F6C402F1498716ADC73E23E /* Pods */,
+				AE056D1B9ECFB92F0717AAEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +82,19 @@
 				21391DEC1F6BAF5C00893B47 /* Assets.xcassets */,
 				21391DEE1F6BAF5C00893B47 /* LaunchScreen.storyboard */,
 				21391DF11F6BAF5C00893B47 /* Info.plist */,
+				21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */,
+				21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */,
+				21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */,
 			);
 			path = WeTwo;
+			sourceTree = "<group>";
+		};
+		AE056D1B9ECFB92F0717AAEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B05284AAF95C1C88996406D1 /* Pods_WeTwo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21391DF41F6BAF5C00893B47 /* Build configuration list for PBXNativeTarget "WeTwo" */;
 			buildPhases = (
+				F7F047854C244C0BD2A62636 /* [CP] Check Pods Manifest.lock */,
 				21391DDE1F6BAF5C00893B47 /* Sources */,
 				21391DDF1F6BAF5C00893B47 /* Frameworks */,
 				21391DE01F6BAF5C00893B47 /* Resources */,
+				184552326E1DEE31DBE205A6 /* [CP] Embed Pods Frameworks */,
+				97CADD683ED8C4B0468FAFB6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,6 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21391DFC1F6BB19500893B47 /* ArticleTableViewCell.xib in Resources */,
 				21391DF01F6BAF5C00893B47 /* LaunchScreen.storyboard in Resources */,
 				21391DED1F6BAF5C00893B47 /* Assets.xcassets in Resources */,
 				21391DEB1F6BAF5C00893B47 /* Main.storyboard in Resources */,
@@ -132,11 +169,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		184552326E1DEE31DBE205A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WeTwo/Pods-WeTwo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeTwo/Pods-WeTwo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97CADD683ED8C4B0468FAFB6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeTwo/Pods-WeTwo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7F047854C244C0BD2A62636 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WeTwo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		21391DDE1F6BAF5C00893B47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21391DFB1F6BB19500893B47 /* ArticleTableViewCell.swift in Sources */,
+				21391DF81F6BB12A00893B47 /* ArticlesTableViewController.swift in Sources */,
 				21391DE81F6BAF5C00893B47 /* ViewController.swift in Sources */,
 				21391DE61F6BAF5C00893B47 /* AppDelegate.swift in Sources */,
 			);
@@ -261,10 +356,12 @@
 		};
 		21391DF51F6BAF5C00893B47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37D16AF5CFB4FDE9D9E9BF5E /* Pods-WeTwo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2CZEJUQUR6;
 				INFOPLIST_FILE = WeTwo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.polarxiong.WeTwo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,10 +371,12 @@
 		};
 		21391DF61F6BAF5C00893B47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBCFB658A639C25974446ACE /* Pods-WeTwo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2CZEJUQUR6;
 				INFOPLIST_FILE = WeTwo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.polarxiong.WeTwo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
