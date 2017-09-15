@@ -11,7 +11,6 @@ import SwiftyJSON
 
 class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var commentTableView: UITableView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
