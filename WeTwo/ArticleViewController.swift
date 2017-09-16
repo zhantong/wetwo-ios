@@ -16,19 +16,32 @@ class Comment {
     var parentCommentId: Int = 0
     var time: String = ""
     var userName: String = ""
+    var parentUserName: String?
 
-    init(comment: String, commentId: Int, parentCommentId: Int, time: String, userName: String) {
+    init(comment: String, commentId: Int, parentCommentId: Int, time: String, userName: String, parentUserName: String?) {
         self.comment = comment
         self.commentId = commentId
         self.parentCommentId = parentCommentId
         self.time = time
         self.userName = userName
+        self.parentUserName = parentUserName
+    }
+
+    func toText() -> String {
+        var result = userName
+        if parentUserName != nil {
+            result += " 回复 " + parentUserName!
+        }
+        result += ": " + comment
+        return result
     }
 }
 
 class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var commentTableView: UITableView!
+    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
     var articleId = 0
     var comments = [Comment]()
@@ -44,6 +57,8 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         commentTableView.tableFooterView = UIView(frame: .zero)
         commentTableView.rowHeight = UITableViewAutomaticDimension
         commentTableView.estimatedRowHeight = 44.0
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
 
         let loginParams: Parameters = [
             "name": "北极熊",
@@ -65,9 +80,18 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
 
+    func keyboardWillChange(_ note: NSNotification) {
+        let frame = (note.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        bottomConstraint.constant = view.frame.size.height - frame.origin.y
+        let duration = (note.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        UIView.animate(withDuration: duration, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+
     func extractComments(_ commentsJson: JSON) {
         for (index, commentJson): (String, JSON) in commentsJson {
-            comments.append(Comment(comment: commentJson["comment"].string!, commentId: commentJson["comment_id"].int!, parentCommentId: commentJson["parent_comment_id"].int!, time: commentJson["post_time"].string!, userName: commentJson["user_name"].string!))
+            comments.append(Comment(comment: commentJson["comment"].string!, commentId: commentJson["comment_id"].int!, parentCommentId: commentJson["parent_comment_id"].int!, time: commentJson["post_time"].string!, userName: commentJson["user_name"].string!, parentUserName: commentJson["parent_user_name"].string))
             extractComments(commentJson["children"])
         }
     }
@@ -86,7 +110,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath) as! CommentTableViewCell
 
         // Configure the cell...
-        cell.contentLabel.text = comments[indexPath.row].comment
+        cell.contentLabel.text = comments[indexPath.row].toText()
 
         return cell
     }
