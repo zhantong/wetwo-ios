@@ -15,6 +15,9 @@
 		21391DF81F6BB12A00893B47 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */; };
 		21391DFB1F6BB19500893B47 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */; };
 		21391DFC1F6BB19500893B47 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */; };
+		21B942061F6C1A7C00AD1806 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B942051F6C1A7C00AD1806 /* ArticleViewController.swift */; };
+		21B942091F6C21D300AD1806 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B942071F6C21D300AD1806 /* CommentTableViewCell.swift */; };
+		21B9420A1F6C21D300AD1806 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B942081F6C21D300AD1806 /* CommentTableViewCell.xib */; };
 		976226B7FC70950D824A709C /* Pods_WeTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05284AAF95C1C88996406D1 /* Pods_WeTwo.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
 		21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
+		21B942051F6C1A7C00AD1806 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		21B942071F6C21D300AD1806 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		21B942081F6C21D300AD1806 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		37D16AF5CFB4FDE9D9E9BF5E /* Pods-WeTwo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeTwo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeTwo/Pods-WeTwo.debug.xcconfig"; sourceTree = "<group>"; };
 		B05284AAF95C1C88996406D1 /* Pods_WeTwo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeTwo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCFB658A639C25974446ACE /* Pods-WeTwo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeTwo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeTwo/Pods-WeTwo.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,12 +85,15 @@
 				21391DE51F6BAF5C00893B47 /* AppDelegate.swift */,
 				21391DE71F6BAF5C00893B47 /* ViewController.swift */,
 				21391DE91F6BAF5C00893B47 /* Main.storyboard */,
+				21B942051F6C1A7C00AD1806 /* ArticleViewController.swift */,
 				21391DEC1F6BAF5C00893B47 /* Assets.xcassets */,
 				21391DEE1F6BAF5C00893B47 /* LaunchScreen.storyboard */,
 				21391DF11F6BAF5C00893B47 /* Info.plist */,
 				21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */,
 				21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */,
 				21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */,
+				21B942071F6C21D300AD1806 /* CommentTableViewCell.swift */,
+				21B942081F6C21D300AD1806 /* CommentTableViewCell.xib */,
 			);
 			path = WeTwo;
 			sourceTree = "<group>";
@@ -164,6 +173,7 @@
 				21391DF01F6BAF5C00893B47 /* LaunchScreen.storyboard in Resources */,
 				21391DED1F6BAF5C00893B47 /* Assets.xcassets in Resources */,
 				21391DEB1F6BAF5C00893B47 /* Main.storyboard in Resources */,
+				21B9420A1F6C21D300AD1806 /* CommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +241,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21391DFB1F6BB19500893B47 /* ArticleTableViewCell.swift in Sources */,
+				21B942091F6C21D300AD1806 /* CommentTableViewCell.swift in Sources */,
 				21391DF81F6BB12A00893B47 /* ArticlesTableViewController.swift in Sources */,
+				21B942061F6C1A7C00AD1806 /* ArticleViewController.swift in Sources */,
 				21391DE81F6BAF5C00893B47 /* ViewController.swift in Sources */,
 				21391DE61F6BAF5C00893B47 /* AppDelegate.swift in Sources */,
 			);
@@ -403,6 +415,7 @@
 				21391DF61F6BAF5C00893B47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

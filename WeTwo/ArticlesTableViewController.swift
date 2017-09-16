@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class ArticlesTableViewController: UITableViewController {
     var articles = JSON("")
+    var selectedArticleId = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,17 @@ class ArticlesTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedArticleId = articles[indexPath.row]["article_id"].int!
+        performSegue(withIdentifier: "article", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "article" {
+            let articleViewController = segue.destination as! ArticleViewController
+            articleViewController.articleId = selectedArticleId
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
