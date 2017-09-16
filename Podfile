@@ -5,4 +5,5 @@ use_frameworks!
 target 'WeTwo' do
   pod 'Alamofire', '~> 4.5'
   pod 'SwiftyJSON'
+  pod 'Toast-Swift', '~> 2.0.0'
 end

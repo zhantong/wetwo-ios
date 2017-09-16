@@ -15,6 +15,8 @@
 		21391DF81F6BB12A00893B47 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */; };
 		21391DFB1F6BB19500893B47 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */; };
 		21391DFC1F6BB19500893B47 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */; };
+		21AFE8CA1F6CF51D009C1438 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFE8C91F6CF51D009C1438 /* MainTabBarController.swift */; };
+		21AFE8CC1F6CFF71009C1438 /* newArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFE8CB1F6CFF71009C1438 /* newArticleViewController.swift */; };
 		21B942061F6C1A7C00AD1806 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B942051F6C1A7C00AD1806 /* ArticleViewController.swift */; };
 		21B942091F6C21D300AD1806 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B942071F6C21D300AD1806 /* CommentTableViewCell.swift */; };
 		21B9420A1F6C21D300AD1806 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B942081F6C21D300AD1806 /* CommentTableViewCell.xib */; };
@@ -32,6 +34,8 @@
 		21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
 		21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
+		21AFE8C91F6CF51D009C1438 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		21AFE8CB1F6CFF71009C1438 /* newArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newArticleViewController.swift; sourceTree = "<group>"; };
 		21B942051F6C1A7C00AD1806 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		21B942071F6C21D300AD1806 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		21B942081F6C21D300AD1806 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				21391DE51F6BAF5C00893B47 /* AppDelegate.swift */,
 				21391DE71F6BAF5C00893B47 /* ViewController.swift */,
 				21391DE91F6BAF5C00893B47 /* Main.storyboard */,
+				21AFE8CB1F6CFF71009C1438 /* newArticleViewController.swift */,
+				21AFE8C91F6CF51D009C1438 /* MainTabBarController.swift */,
 				21B942051F6C1A7C00AD1806 /* ArticleViewController.swift */,
 				21391DEC1F6BAF5C00893B47 /* Assets.xcassets */,
 				21391DEE1F6BAF5C00893B47 /* LaunchScreen.storyboard */,
@@ -189,11 +195,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-WeTwo/Pods-WeTwo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -243,8 +251,10 @@
 				21391DFB1F6BB19500893B47 /* ArticleTableViewCell.swift in Sources */,
 				21B942091F6C21D300AD1806 /* CommentTableViewCell.swift in Sources */,
 				21391DF81F6BB12A00893B47 /* ArticlesTableViewController.swift in Sources */,
+				21AFE8CA1F6CF51D009C1438 /* MainTabBarController.swift in Sources */,
 				21B942061F6C1A7C00AD1806 /* ArticleViewController.swift in Sources */,
 				21391DE81F6BAF5C00893B47 /* ViewController.swift in Sources */,
+				21AFE8CC1F6CFF71009C1438 /* newArticleViewController.swift in Sources */,
 				21391DE61F6BAF5C00893B47 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
