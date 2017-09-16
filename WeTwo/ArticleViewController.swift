@@ -37,7 +37,7 @@ class Comment {
     }
 }
 
-class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var commentTextField: UITextField!
@@ -45,6 +45,12 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var articleId = 0
     var comments = [Comment]()
+    var parentCommentId = 0
+
+    let loginParams: Parameters = [
+        "name": "北极熊",
+        "password": "123456"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,14 +64,17 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         commentTableView.rowHeight = UITableViewAutomaticDimension
         commentTableView.estimatedRowHeight = 44.0
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        commentTextField.delegate = self
 
-        let loginParams: Parameters = [
-            "name": "北极熊",
-            "password": "123456"
-        ]
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
 
         // Do any additional setup after loading the view.
+        reloadArticle()
+    }
+
+    func reloadArticle() {
         Alamofire.request("http://192.168.1.2:5000/api/login", method: .post, parameters: loginParams).responseJSON {
             response in
 
@@ -73,11 +82,33 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
                 response in
                 let article = JSON(response.result.value!)
                 self.contentLabel.text = article["article"].string
+                self.comments.removeAll()
                 self.extractComments(article["comments"])
                 self.commentTableView.reloadData()
             }
         }
+    }
 
+    func postComment(articleId: Int, comment: String, parentCommentId: Int) {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        view.addSubview(activityIndicator)
+        activityIndicator.center = CGPoint(x: view.frame.size.width * 0.5, y: view.frame.size.height * 0.5)
+        activityIndicator.startAnimating()
+        Alamofire.request("http://192.168.1.2:5000/api/login", method: .post, parameters: loginParams).responseJSON {
+            response in
+
+            let commentParams: Parameters = [
+                "articleId": articleId,
+                "comment": comment,
+                "parentCommentId": parentCommentId
+            ]
+            Alamofire.request("http://192.168.1.2:5000/api/postComment", method: .post, parameters: commentParams).responseJSON {
+                response in
+
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+            }
+        }
     }
 
     func keyboardWillChange(_ note: NSNotification) {
@@ -87,6 +118,12 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         UIView.animate(withDuration: duration, animations: {
             self.view.layoutIfNeeded()
         })
+    }
+
+    func keyboardWillHide(_ note: NSNotification) {
+        parentCommentId = 0
+        commentTextField.text = ""
+        commentTextField.placeholder = "评论"
     }
 
     func extractComments(_ commentsJson: JSON) {
@@ -114,6 +151,22 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        parentCommentId = comments[indexPath.row].commentId
+        commentTextField.placeholder = "回复 " + comments[indexPath.row].userName + ":"
+        commentTextField.becomeFirstResponder()
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let comment = textField.text!
+        postComment(articleId: articleId, comment: comment, parentCommentId: parentCommentId)
+
+        reloadArticle()
+        textField.resignFirstResponder()
+        return true
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
