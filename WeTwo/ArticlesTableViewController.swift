@@ -9,10 +9,13 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import PullToRefreshKit
 
 class ArticlesTableViewController: UITableViewController {
-    var articles = JSON("")
+    var articles = [JSON]()
     var selectedArticleId = 0
+    var offset = 0
+    var limit = 20
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,33 @@ class ArticlesTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 44.0
 
         tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
+        tableView.setUpHeaderRefresh {
+            let params: Parameters = [
+                "offset": 0,
+                "limit": self.limit
+            ]
+            Alamofire.request("http://192.168.1.2:5000/api/getAllArticles", parameters: params).responseJSON {
+                response in
+                self.articles = JSON(response.result.value!).array!
+                self.offset = self.limit
+                self.tableView.reloadData()
+                self.tableView.endHeaderRefreshing(.success)
+            }
+        }
+        tableView.setUpFooterRefresh {
+            let params: Parameters = [
+                "offset": self.offset,
+                "limit": self.limit
+            ]
+            Alamofire.request("http://192.168.1.2:5000/api/getAllArticles", parameters: params).responseJSON {
+                response in
+                let json = JSON(response.result.value!)
+                self.articles.append(contentsOf: json.array!)
+                self.offset += self.limit
+                self.tableView.reloadData()
+                self.tableView.endFooterRefreshing()
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,11 +67,7 @@ class ArticlesTableViewController: UITableViewController {
             if statusCode == 401 {
                 self.performSegue(withIdentifier: "login", sender: self)
             } else {
-                Alamofire.request("http://192.168.1.2:5000/api/getAllArticles").responseJSON {
-                    response in
-                    self.articles = JSON(response.result.value!)
-                    self.tableView.reloadData()
-                }
+                self.tableView.beginHeaderRefreshing()
             }
         }
     }
