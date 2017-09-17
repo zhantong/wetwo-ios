@@ -25,20 +25,34 @@ class ArticlesTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 44.0
 
-        let loginParams: Parameters = [
-            "name": "北极熊",
-            "password": "123456"
-        ]
         tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
-        Alamofire.request("http://192.168.1.2:5000/api/login", method: .post, parameters: loginParams).responseJSON {
-            response in
-            let json = JSON(response.result.value!)
-            print(json["message"].string)
+    }
 
-            Alamofire.request("http://192.168.1.2:5000/api/getAllArticles").responseJSON {
-                response in
-                self.articles = JSON(response.result.value!)
-                self.tableView.reloadData()
+    override func viewWillAppear(_ animated: Bool) {
+        loadCookies()
+
+        Alamofire.request("http://192.168.1.2:5000/api/getUserInfo").responseJSON {
+            response in
+            let statusCode = response.response?.statusCode
+            if statusCode == 401 {
+                self.performSegue(withIdentifier: "login", sender: self)
+            } else {
+                Alamofire.request("http://192.168.1.2:5000/api/getAllArticles").responseJSON {
+                    response in
+                    self.articles = JSON(response.result.value!)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+
+    func loadCookies() {
+        guard let cookieArray = UserDefaults.standard.array(forKey: "savedCookies") as? [[HTTPCookiePropertyKey: Any]] else {
+            return
+        }
+        for cookieProperties in cookieArray {
+            if let cookie = HTTPCookie(properties: cookieProperties) {
+                HTTPCookieStorage.shared.setCookie(cookie)
             }
         }
     }

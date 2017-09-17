@@ -47,11 +47,6 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     var comments = [Comment]()
     var parentCommentId = 0
 
-    let loginParams: Parameters = [
-        "name": "北极熊",
-        "password": "123456"
-    ]
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,17 +70,17 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func reloadArticle() {
-        Alamofire.request("http://192.168.1.2:5000/api/login", method: .post, parameters: loginParams).responseJSON {
-            response in
+        let articleParams: Parameters = [
+            "articleId": self.articleId
+        ]
 
-            Alamofire.request("http://192.168.1.2:5000/api/getArticle", method: .get, parameters: ["articleId": self.articleId]).responseJSON {
-                response in
-                let article = JSON(response.result.value!)
-                self.contentLabel.text = article["article"].string
-                self.comments.removeAll()
-                self.extractComments(article["comments"])
-                self.commentTableView.reloadData()
-            }
+        Alamofire.request("http://192.168.1.2:5000/api/getArticle", method: .get, parameters: articleParams).responseJSON {
+            response in
+            let article = JSON(response.result.value!)
+            self.contentLabel.text = article["article"].string
+            self.comments.removeAll()
+            self.extractComments(article["comments"])
+            self.commentTableView.reloadData()
         }
     }
 
@@ -94,20 +89,17 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.addSubview(activityIndicator)
         activityIndicator.center = CGPoint(x: view.frame.size.width * 0.5, y: view.frame.size.height * 0.5)
         activityIndicator.startAnimating()
-        Alamofire.request("http://192.168.1.2:5000/api/login", method: .post, parameters: loginParams).responseJSON {
+
+        let commentParams: Parameters = [
+            "articleId": articleId,
+            "comment": comment,
+            "parentCommentId": parentCommentId
+        ]
+        Alamofire.request("http://192.168.1.2:5000/api/postComment", method: .post, parameters: commentParams).responseJSON {
             response in
 
-            let commentParams: Parameters = [
-                "articleId": articleId,
-                "comment": comment,
-                "parentCommentId": parentCommentId
-            ]
-            Alamofire.request("http://192.168.1.2:5000/api/postComment", method: .post, parameters: commentParams).responseJSON {
-                response in
-
-                activityIndicator.stopAnimating()
-                activityIndicator.removeFromSuperview()
-            }
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
         }
     }
 

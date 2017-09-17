@@ -36,6 +36,7 @@
                     <navigationItem key="navigationItem" id="5Cr-g2-jHH"/>
                     <connections>
                         <segue destination="OUO-9K-S6B" kind="show" identifier="article" id="hVs-e7-vmh"/>
+                        <segue destination="A7F-YR-OZv" kind="presentation" identifier="login" id="Z2b-eS-9WE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOz-Nr-E2Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,6 +99,58 @@
             </objects>
             <point key="canvasLocation" x="2823.1999999999998" y="776.76161919040487"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="YjL-77-mPy">
+            <objects>
+                <viewController id="A7F-YR-OZv" customClass="LoginViewController" customModule="WeTwo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8tW-yv-B4f"/>
+                        <viewControllerLayoutGuide type="bottom" id="IWR-p6-RUy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ngg-uZ-Bnz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rtd-L6-sYf">
+                                <rect key="frame" x="16" y="60" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e00-it-5Kl">
+                                <rect key="frame" x="16" y="110" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b24-H6-gDW">
+                                <rect key="frame" x="16" y="180" width="343" height="30"/>
+                                <state key="normal" title="登录"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b24-H6-gDW" firstAttribute="leading" secondItem="ngg-uZ-Bnz" secondAttribute="leadingMargin" id="8wo-aN-bbS"/>
+                            <constraint firstItem="e00-it-5Kl" firstAttribute="top" secondItem="Rtd-L6-sYf" secondAttribute="bottom" constant="20" id="ALN-7U-awF"/>
+                            <constraint firstItem="b24-H6-gDW" firstAttribute="top" secondItem="e00-it-5Kl" secondAttribute="bottom" constant="40" id="UR9-kR-O2v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b24-H6-gDW" secondAttribute="trailing" id="VAD-qQ-tq7"/>
+                            <constraint firstItem="e00-it-5Kl" firstAttribute="leading" secondItem="ngg-uZ-Bnz" secondAttribute="leadingMargin" id="VUb-hZ-lqq"/>
+                            <constraint firstItem="Rtd-L6-sYf" firstAttribute="top" secondItem="8tW-yv-B4f" secondAttribute="bottom" constant="40" id="WWk-CE-Gyk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e00-it-5Kl" secondAttribute="trailing" id="Ylr-lg-zWe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rtd-L6-sYf" secondAttribute="trailing" id="lq8-Fb-TDQ"/>
+                            <constraint firstItem="Rtd-L6-sYf" firstAttribute="leading" secondItem="ngg-uZ-Bnz" secondAttribute="leadingMargin" id="zxu-U1-qxc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="b24-H6-gDW" id="qBr-A2-jPM"/>
+                        <outlet property="passwordTextField" destination="e00-it-5Kl" id="Aii-eS-0CW"/>
+                        <outlet property="usernameTextField" destination="Rtd-L6-sYf" id="7G8-48-RH0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gv-MX-NiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2063" y="63"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="lwK-ra-tTI">
             <objects>
@@ -123,6 +176,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lyD-Bq-kmf" customClass="MainTabBarController" customModule="WeTwo" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="IGN-id-KWH">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

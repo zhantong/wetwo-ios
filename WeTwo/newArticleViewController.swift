@@ -23,11 +23,6 @@ class newArticleViewController: UIViewController, UITextViewDelegate {
 
     var parentView: UIView!
 
-    let loginParams: Parameters = [
-        "name": "北极熊",
-        "password": "123456"
-    ]
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,12 +40,9 @@ class newArticleViewController: UIViewController, UITextViewDelegate {
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (contentTextView.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !contentTextView.text.isEmpty
-
-
     }
 
     func postButtonClicked() {
-
         let article = contentTextView.text!
 
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -58,24 +50,19 @@ class newArticleViewController: UIViewController, UITextViewDelegate {
         activityIndicator.center = CGPoint(x: view.frame.size.width * 0.5, y: view.frame.size.height * 0.5)
         activityIndicator.startAnimating()
 
-        Alamofire.request("http://192.168.1.2:5000/api/login", method: .post, parameters: loginParams).responseJSON {
+        let articleParams: Parameters = [
+            "article": article
+        ]
+        Alamofire.request("http://192.168.1.2:5000/api/postArticle", method: .post, parameters: articleParams).responseJSON {
             response in
 
-            let articleParams: Parameters = [
-                "article": article
-            ]
-            Alamofire.request("http://192.168.1.2:5000/api/postArticle", method: .post, parameters: articleParams).responseJSON {
-                response in
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
 
-                activityIndicator.stopAnimating()
-                activityIndicator.removeFromSuperview()
+            self.parentView.makeToast("发布成功", duration: 2.0, position: .center)
 
-                self.parentView.makeToast("发布成功", duration: 2.0, position: .center)
-
-                self.dismiss(animated: true, completion: nil)
-            }
+            self.dismiss(animated: true, completion: nil)
         }
-
     }
 
     func cancelButtonClicked() {

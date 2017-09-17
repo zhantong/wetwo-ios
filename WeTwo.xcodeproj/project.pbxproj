@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21059F621F6DFA5C0017E4F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21059F611F6DFA5C0017E4F0 /* LoginViewController.swift */; };
 		21391DE61F6BAF5C00893B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DE51F6BAF5C00893B47 /* AppDelegate.swift */; };
 		21391DE81F6BAF5C00893B47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DE71F6BAF5C00893B47 /* ViewController.swift */; };
 		21391DEB1F6BAF5C00893B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21391DE91F6BAF5C00893B47 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21059F611F6DFA5C0017E4F0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		21391DE21F6BAF5C00893B47 /* WeTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21391DE51F6BAF5C00893B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21391DE71F6BAF5C00893B47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */,
 				21B942071F6C21D300AD1806 /* CommentTableViewCell.swift */,
 				21B942081F6C21D300AD1806 /* CommentTableViewCell.xib */,
+				21059F611F6DFA5C0017E4F0 /* LoginViewController.swift */,
 			);
 			path = WeTwo;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21059F621F6DFA5C0017E4F0 /* LoginViewController.swift in Sources */,
 				21391DFB1F6BB19500893B47 /* ArticleTableViewCell.swift in Sources */,
 				21B942091F6C21D300AD1806 /* CommentTableViewCell.swift in Sources */,
 				21391DF81F6BB12A00893B47 /* ArticlesTableViewController.swift in Sources */,
