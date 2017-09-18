@@ -39,6 +39,8 @@ class Comment {
 
 class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -78,6 +80,8 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
             response in
             let article = JSON(response.result.value!)
             self.contentLabel.text = article["article"].string
+            self.userNameLabel.text = article["user_name"].string
+            self.timeLabel.text = article["post_time"].string
             self.comments.removeAll()
             self.extractComments(article["comments"])
             self.commentTableView.reloadData()
@@ -105,7 +109,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func keyboardWillChange(_ note: NSNotification) {
         let frame = (note.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        bottomConstraint.constant = view.frame.size.height - frame.origin.y
+        bottomConstraint.constant = view.frame.size.height - frame.origin.y + 8
         let duration = (note.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         UIView.animate(withDuration: duration, animations: {
             self.view.layoutIfNeeded()

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Articles Table View Controller-->
+        <!--动态-->
         <scene sceneID="ONJ-HT-n7v">
             <objects>
                 <tableViewController id="Df7-Ij-RO0" customClass="ArticlesTableViewController" customModule="WeTwo" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                             <outlet property="delegate" destination="Df7-Ij-RO0" id="G2S-FZ-Y5h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="5Cr-g2-jHH"/>
+                    <navigationItem key="navigationItem" title="动态" id="5Cr-g2-jHH"/>
                     <connections>
                         <segue destination="OUO-9K-S6B" kind="show" identifier="article" id="hVs-e7-vmh"/>
                         <segue destination="A7F-YR-OZv" kind="presentation" identifier="login" id="Z2b-eS-9WE"/>
@@ -56,17 +56,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOF-FN-w5W">
-                                <rect key="frame" x="16" y="85" width="343" height="552"/>
+                                <rect key="frame" x="16" y="122" width="343" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="评论" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="htp-HK-vUY">
-                                <rect key="frame" x="16" y="637" width="343" height="30"/>
+                                <rect key="frame" x="16" y="629" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Lcf-Rr-uNs"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="send"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUI-TO-9Cg">
-                                <rect key="frame" x="16" y="64" width="343" height="21"/>
+                                <rect key="frame" x="16" y="101" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-p9-sqZ">
+                                <rect key="frame" x="16" y="72" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp8-Ih-pZ1">
+                                <rect key="frame" x="123" y="72" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -74,25 +89,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Fp8-Ih-pZ1" firstAttribute="top" secondItem="46m-7I-kH6" secondAttribute="bottom" constant="8" id="7ht-h2-MI7"/>
                             <constraint firstItem="htp-HK-vUY" firstAttribute="top" secondItem="lOF-FN-w5W" secondAttribute="bottom" id="8n0-zr-xtI"/>
                             <constraint firstItem="lOF-FN-w5W" firstAttribute="top" secondItem="GUI-TO-9Cg" secondAttribute="bottom" id="Bad-5p-wAC"/>
-                            <constraint firstItem="GUI-TO-9Cg" firstAttribute="top" secondItem="46m-7I-kH6" secondAttribute="bottom" id="EOb-cj-lPL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="htp-HK-vUY" secondAttribute="trailing" id="Epg-mx-zNE"/>
+                            <constraint firstItem="Fp8-Ih-pZ1" firstAttribute="leading" secondItem="uqT-p9-sqZ" secondAttribute="trailing" id="P2D-X5-jA7"/>
                             <constraint firstItem="lOF-FN-w5W" firstAttribute="leading" secondItem="oO0-kL-xPQ" secondAttribute="leadingMargin" id="PUA-jo-CA5"/>
+                            <constraint firstItem="GUI-TO-9Cg" firstAttribute="top" secondItem="uqT-p9-sqZ" secondAttribute="bottom" constant="8" id="QuK-Kl-6Y1"/>
                             <constraint firstItem="htp-HK-vUY" firstAttribute="leading" secondItem="oO0-kL-xPQ" secondAttribute="leadingMargin" id="S9B-uI-ntT"/>
                             <constraint firstItem="lOF-FN-w5W" firstAttribute="trailing" secondItem="oO0-kL-xPQ" secondAttribute="trailingMargin" id="TEw-zK-Oyu"/>
                             <constraint firstItem="lOF-FN-w5W" firstAttribute="top" secondItem="GUI-TO-9Cg" secondAttribute="bottom" id="aTA-So-CH4"/>
                             <constraint firstItem="GUI-TO-9Cg" firstAttribute="trailing" secondItem="oO0-kL-xPQ" secondAttribute="trailingMargin" id="ich-Br-TT3"/>
                             <constraint firstItem="htp-HK-vUY" firstAttribute="top" secondItem="lOF-FN-w5W" secondAttribute="bottom" id="ih1-wG-uCy"/>
                             <constraint firstItem="GUI-TO-9Cg" firstAttribute="leading" secondItem="oO0-kL-xPQ" secondAttribute="leadingMargin" id="k6M-Sn-aff"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="htp-HK-vUY" secondAttribute="bottom" id="rgP-El-siZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fp8-Ih-pZ1" secondAttribute="trailing" id="lcj-e4-WN8"/>
+                            <constraint firstItem="uqT-p9-sqZ" firstAttribute="top" secondItem="46m-7I-kH6" secondAttribute="bottom" constant="8" id="uqh-Mm-Zrv"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="htp-HK-vUY" secondAttribute="bottom" constant="8" id="wpD-31-qyG"/>
+                            <constraint firstItem="uqT-p9-sqZ" firstAttribute="leading" secondItem="oO0-kL-xPQ" secondAttribute="leadingMargin" id="yTO-Qd-rIo"/>
+                            <constraint firstItem="Fp8-Ih-pZ1" firstAttribute="leading" secondItem="uqT-p9-sqZ" secondAttribute="trailing" id="yvo-Sg-QaR"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomConstraint" destination="rgP-El-siZ" id="JFn-mZ-0L8"/>
+                        <outlet property="bottomConstraint" destination="wpD-31-qyG" id="cWX-X1-aNo"/>
                         <outlet property="commentTableView" destination="lOF-FN-w5W" id="jJM-1n-onT"/>
                         <outlet property="commentTextField" destination="htp-HK-vUY" id="SIj-IK-yEw"/>
                         <outlet property="contentLabel" destination="GUI-TO-9Cg" id="gNh-Qk-gdp"/>
+                        <outlet property="timeLabel" destination="Fp8-Ih-pZ1" id="H94-TO-04D"/>
+                        <outlet property="userNameLabel" destination="uqT-p9-sqZ" id="UKW-RW-MaJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyh-1s-gLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,11 +174,11 @@
             </objects>
             <point key="canvasLocation" x="2063" y="63"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--动态-->
         <scene sceneID="lwK-ra-tTI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BOA-0n-7tg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="xKl-Rx-ziP"/>
+                    <tabBarItem key="tabBarItem" title="动态" id="xKl-Rx-ziP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tWV-Is-0fJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -190,7 +213,7 @@
             </objects>
             <point key="canvasLocation" x="184.80000000000001" y="776.76161919040487"/>
         </scene>
-        <!--Item-->
+        <!--发布-->
         <scene sceneID="Z7v-4x-3at">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="gnD-lo-EG4" customClass="newArticleViewController" customModule="WeTwo" customModuleProvider="target" sceneMemberID="viewController">
@@ -205,7 +228,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJJ-yY-FMO">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="2HR-tx-mPh">
+                                    <navigationItem title="发布文章" id="2HR-tx-mPh">
                                         <barButtonItem key="leftBarButtonItem" title="取消" id="BuS-bf-FQr"/>
                                         <barButtonItem key="rightBarButtonItem" title="发布" id="pjk-Iu-aYE"/>
                                     </navigationItem>
@@ -229,7 +252,7 @@
                             <constraint firstItem="BJJ-yY-FMO" firstAttribute="top" secondItem="rJh-Lj-Spl" secondAttribute="bottom" id="yzA-Eh-fSH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Item" id="zGZ-nN-Xda"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="发布" id="zGZ-nN-Xda"/>
                     <navigationItem key="navigationItem" id="CSp-wE-d2r"/>
                     <connections>
                         <outlet property="cancelButton" destination="BuS-bf-FQr" id="Wme-cV-CEF"/>
