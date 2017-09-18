@@ -43,6 +43,38 @@
             </objects>
             <point key="canvasLocation" x="2063.1999999999998" y="776.76161919040487"/>
         </scene>
+        <!--消息通知-->
+        <scene sceneID="YDg-W7-fhc">
+            <objects>
+                <tableViewController id="e2n-AD-Exe" customClass="NotificationTableViewController" customModule="WeTwo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1Qs-F7-vNQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1B7-3H-IjG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1B7-3H-IjG" id="chx-D7-sOh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="e2n-AD-Exe" id="JVy-cB-bdB"/>
+                            <outlet property="delegate" destination="e2n-AD-Exe" id="20F-nn-8Ey"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="消息通知" id="zMp-wd-HTQ"/>
+                    <connections>
+                        <segue destination="OUO-9K-S6B" kind="show" identifier="article" id="3Ej-pg-xjv"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYf-IC-fFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2063" y="1556"/>
+        </scene>
         <!--Article View Controller-->
         <scene sceneID="Aeb-xS-8sf">
             <objects>
@@ -207,6 +239,7 @@
                         <segue destination="BOA-0n-7tg" kind="relationship" relationship="viewControllers" id="2AG-wE-BDq"/>
                         <segue destination="gnD-lo-EG4" kind="relationship" relationship="viewControllers" id="tvz-wO-PBv"/>
                         <segue destination="gnD-lo-EG4" kind="show" identifier="newArticle" id="Hjr-k1-BQA"/>
+                        <segue destination="br8-rp-lJ1" kind="relationship" relationship="viewControllers" id="dmt-5h-Qbs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2L-Rw-yBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,10 +295,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsz-vJ-R39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="1516"/>
+            <point key="canvasLocation" x="185" y="1556"/>
+        </scene>
+        <!--消息-->
+        <scene sceneID="dTm-pd-SC8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="br8-rp-lJ1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="消息" id="keT-9o-sxm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cJe-7b-PM1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="e2n-AD-Exe" kind="relationship" relationship="rootViewController" id="wdt-cF-1XY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vAU-jR-Pxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124" y="1556"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Hjr-k1-BQA"/>
+        <segue reference="3Ej-pg-xjv"/>
     </inferredMetricsTieBreakers>
 </document>

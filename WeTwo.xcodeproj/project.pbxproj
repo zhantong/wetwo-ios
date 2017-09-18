@@ -16,6 +16,9 @@
 		21391DF81F6BB12A00893B47 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */; };
 		21391DFB1F6BB19500893B47 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */; };
 		21391DFC1F6BB19500893B47 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */; };
+		216B63991F6F684F00549871 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216B63981F6F684F00549871 /* NotificationTableViewController.swift */; };
+		216B639C1F6F689700549871 /* NewCommentNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216B639A1F6F689700549871 /* NewCommentNotificationTableViewCell.swift */; };
+		216B639D1F6F689700549871 /* NewCommentNotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 216B639B1F6F689700549871 /* NewCommentNotificationTableViewCell.xib */; };
 		21AFE8CA1F6CF51D009C1438 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFE8C91F6CF51D009C1438 /* MainTabBarController.swift */; };
 		21AFE8CC1F6CFF71009C1438 /* newArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFE8CB1F6CFF71009C1438 /* newArticleViewController.swift */; };
 		21B942061F6C1A7C00AD1806 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B942051F6C1A7C00AD1806 /* ArticleViewController.swift */; };
@@ -36,6 +39,9 @@
 		21391DF71F6BB12A00893B47 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
 		21391DF91F6BB19500893B47 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		21391DFA1F6BB19500893B47 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
+		216B63981F6F684F00549871 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
+		216B639A1F6F689700549871 /* NewCommentNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentNotificationTableViewCell.swift; sourceTree = "<group>"; };
+		216B639B1F6F689700549871 /* NewCommentNotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCommentNotificationTableViewCell.xib; sourceTree = "<group>"; };
 		21AFE8C91F6CF51D009C1438 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		21AFE8CB1F6CFF71009C1438 /* newArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newArticleViewController.swift; sourceTree = "<group>"; };
 		21B942051F6C1A7C00AD1806 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,9 @@
 				21B942071F6C21D300AD1806 /* CommentTableViewCell.swift */,
 				21B942081F6C21D300AD1806 /* CommentTableViewCell.xib */,
 				21059F611F6DFA5C0017E4F0 /* LoginViewController.swift */,
+				216B63981F6F684F00549871 /* NotificationTableViewController.swift */,
+				216B639A1F6F689700549871 /* NewCommentNotificationTableViewCell.swift */,
+				216B639B1F6F689700549871 /* NewCommentNotificationTableViewCell.xib */,
 			);
 			path = WeTwo;
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 				21391DFC1F6BB19500893B47 /* ArticleTableViewCell.xib in Resources */,
 				21391DF01F6BAF5C00893B47 /* LaunchScreen.storyboard in Resources */,
 				21391DED1F6BAF5C00893B47 /* Assets.xcassets in Resources */,
+				216B639D1F6F689700549871 /* NewCommentNotificationTableViewCell.xib in Resources */,
 				21391DEB1F6BAF5C00893B47 /* Main.storyboard in Resources */,
 				21B9420A1F6C21D300AD1806 /* CommentTableViewCell.xib in Resources */,
 			);
@@ -253,8 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				216B63991F6F684F00549871 /* NotificationTableViewController.swift in Sources */,
 				21059F621F6DFA5C0017E4F0 /* LoginViewController.swift in Sources */,
 				21391DFB1F6BB19500893B47 /* ArticleTableViewCell.swift in Sources */,
+				216B639C1F6F689700549871 /* NewCommentNotificationTableViewCell.swift in Sources */,
 				21B942091F6C21D300AD1806 /* CommentTableViewCell.swift in Sources */,
 				21391DF81F6BB12A00893B47 /* ArticlesTableViewController.swift in Sources */,
 				21AFE8CA1F6CF51D009C1438 /* MainTabBarController.swift in Sources */,
