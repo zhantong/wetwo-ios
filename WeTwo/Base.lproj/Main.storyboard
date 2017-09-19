@@ -206,11 +206,13 @@
             </objects>
             <point key="canvasLocation" x="2063" y="63"/>
         </scene>
-        <!--动态-->
+        <!--Navigation Controller-->
         <scene sceneID="lwK-ra-tTI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BOA-0n-7tg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="动态" id="xKl-Rx-ziP"/>
+                    <tabBarItem key="tabBarItem" title="" image="star" id="xKl-Rx-ziP">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tWV-Is-0fJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -246,7 +248,7 @@
             </objects>
             <point key="canvasLocation" x="184.80000000000001" y="776.76161919040487"/>
         </scene>
-        <!--发布-->
+        <!--New Article View Controller-->
         <scene sceneID="Z7v-4x-3at">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="gnD-lo-EG4" customClass="newArticleViewController" customModule="WeTwo" customModuleProvider="target" sceneMemberID="viewController">
@@ -285,7 +287,9 @@
                             <constraint firstItem="BJJ-yY-FMO" firstAttribute="top" secondItem="rJh-Lj-Spl" secondAttribute="bottom" id="yzA-Eh-fSH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="发布" id="zGZ-nN-Xda"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="pencil-box" id="zGZ-nN-Xda">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="CSp-wE-d2r"/>
                     <connections>
                         <outlet property="cancelButton" destination="BuS-bf-FQr" id="Wme-cV-CEF"/>
@@ -297,11 +301,13 @@
             </objects>
             <point key="canvasLocation" x="185" y="1556"/>
         </scene>
-        <!--消息-->
+        <!--Navigation Controller-->
         <scene sceneID="dTm-pd-SC8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="br8-rp-lJ1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="消息" id="keT-9o-sxm"/>
+                    <tabBarItem key="tabBarItem" title="" image="message" id="keT-9o-sxm">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cJe-7b-PM1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -317,6 +323,11 @@
             <point key="canvasLocation" x="1124" y="1556"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="message" width="24" height="24"/>
+        <image name="pencil-box" width="24" height="24"/>
+        <image name="star" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Hjr-k1-BQA"/>
         <segue reference="3Ej-pg-xjv"/>
