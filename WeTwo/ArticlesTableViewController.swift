@@ -34,7 +34,7 @@ class ArticlesTableViewController: UITableViewController {
                 "offset": 0,
                 "limit": self.limit
             ]
-            Alamofire.request("http://192.168.1.2:5000/api/getAllArticles", parameters: params).responseJSON {
+            Alamofire.request(baseUrl + "api/getAllArticles", parameters: params).responseJSON {
                 response in
                 self.articles = JSON(response.result.value!).array!
                 self.offset = self.limit
@@ -47,7 +47,7 @@ class ArticlesTableViewController: UITableViewController {
                 "offset": self.offset,
                 "limit": self.limit
             ]
-            Alamofire.request("http://192.168.1.2:5000/api/getAllArticles", parameters: params).responseJSON {
+            Alamofire.request(baseUrl + "api/getAllArticles", parameters: params).responseJSON {
                 response in
                 let json = JSON(response.result.value!)
                 self.articles.append(contentsOf: json.array!)
@@ -56,17 +56,23 @@ class ArticlesTableViewController: UITableViewController {
                 self.tableView.endFooterRefreshing()
             }
         }
+
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        applicationDidBecomeActive()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    func applicationDidBecomeActive() {
         loadCookies()
 
-        Alamofire.request("http://192.168.1.2:5000/api/getUserInfo").responseJSON {
+        Alamofire.request(baseUrl + "api/getUserInfo").responseJSON {
             response in
             let statusCode = response.response?.statusCode
             if statusCode == 401 {
                 self.performSegue(withIdentifier: "login", sender: self)
             } else {
+                let json = JSON(response.result.value!)
+                let numUnreadNotifications = String(json["num_unread_notifications"].int!)
+                self.tabBarController?.tabBar.items?[2].badgeValue = numUnreadNotifications
                 self.tableView.beginHeaderRefreshing()
             }
         }

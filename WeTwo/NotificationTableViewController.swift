@@ -30,9 +30,10 @@ class NotificationTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        Alamofire.request("http://192.168.1.2:5000/api/getUnreadComments").responseJSON {
+        Alamofire.request(baseUrl + "api/getUnreadComments").responseJSON {
             response in
             self.notifications = JSON(response.result.value!).array!
+            self.tabBarController?.tabBar.items?[2].badgeValue = String(self.notifications.count)
             self.tableView.reloadData()
         }
     }
@@ -68,7 +69,7 @@ class NotificationTableViewController: UITableViewController {
         let params: Parameters = [
             "commentId": notifications[indexPath.row]["comment_id"].int!
         ]
-        Alamofire.request("http://192.168.1.2:5000/api/setCommentRead", method: .post, parameters: params).responseJSON {
+        Alamofire.request(baseUrl + "api/setCommentRead", method: .post, parameters: params).responseJSON {
             response in
         }
 

@@ -53,7 +53,7 @@ class newArticleViewController: UIViewController, UITextViewDelegate {
         let articleParams: Parameters = [
             "article": article
         ]
-        Alamofire.request("http://192.168.1.2:5000/api/postArticle", method: .post, parameters: articleParams).responseJSON {
+        Alamofire.request(baseUrl + "api/postArticle", method: .post, parameters: articleParams).responseJSON {
             response in
 
             activityIndicator.stopAnimating()

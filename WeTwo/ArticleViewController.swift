@@ -76,7 +76,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
             "articleId": self.articleId
         ]
 
-        Alamofire.request("http://192.168.1.2:5000/api/getArticle", method: .get, parameters: articleParams).responseJSON {
+        Alamofire.request(baseUrl + "api/getArticle", method: .get, parameters: articleParams).responseJSON {
             response in
             let article = JSON(response.result.value!)
             self.contentLabel.text = article["article"].string
@@ -99,7 +99,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
             "comment": comment,
             "parentCommentId": parentCommentId
         ]
-        Alamofire.request("http://192.168.1.2:5000/api/postComment", method: .post, parameters: commentParams).responseJSON {
+        Alamofire.request(baseUrl + "api/postComment", method: .post, parameters: commentParams).responseJSON {
             response in
 
             activityIndicator.stopAnimating()

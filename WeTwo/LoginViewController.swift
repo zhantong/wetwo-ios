@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
 
         let controller = self
 
-        Alamofire.request("http://192.168.1.2:5000/api/login", method: .post, parameters: loginParams).responseJSON {
+        Alamofire.request(baseUrl + "api/login", method: .post, parameters: loginParams).responseJSON {
             response in
             let json = JSON(response.result.value!)
             if json["status"].bool! {
