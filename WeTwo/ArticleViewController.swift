@@ -88,7 +88,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
-    func postComment(articleId: Int, comment: String, parentCommentId: Int) {
+    func postComment(articleId: Int, comment: String, parentCommentId: Int, callBack: @escaping () -> Void) {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         view.addSubview(activityIndicator)
         activityIndicator.center = CGPoint(x: view.frame.size.width * 0.5, y: view.frame.size.height * 0.5)
@@ -102,6 +102,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         Alamofire.request(baseUrl + "api/postComment", method: .post, parameters: commentParams).responseJSON {
             response in
 
+            callBack();
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
         }
@@ -156,9 +157,9 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let comment = textField.text!
-        postComment(articleId: articleId, comment: comment, parentCommentId: parentCommentId)
-
-        reloadArticle()
+        postComment(articleId: articleId, comment: comment, parentCommentId: parentCommentId, callBack: {
+            self.reloadArticle()
+        })
         textField.resignFirstResponder()
         return true
     }
