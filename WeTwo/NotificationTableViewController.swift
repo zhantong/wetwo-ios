@@ -33,7 +33,7 @@ class NotificationTableViewController: UITableViewController {
         Alamofire.request(baseUrl + "api/getUnreadComments").responseJSON {
             response in
             self.notifications = JSON(response.result.value!).array!
-            self.tabBarController?.tabBar.items?[2].badgeValue = String(self.notifications.count)
+            self.tabBarController?.tabBar.items?[2].badgeValue = self.notifications.count == 0 ? nil : String(self.notifications.count)
             self.tableView.reloadData()
         }
     }

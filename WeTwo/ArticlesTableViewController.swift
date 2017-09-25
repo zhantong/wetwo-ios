@@ -72,7 +72,7 @@ class ArticlesTableViewController: UITableViewController {
             } else {
                 let json = JSON(response.result.value!)
                 let numUnreadNotifications = String(json["num_unread_notifications"].int!)
-                self.tabBarController?.tabBar.items?[2].badgeValue = numUnreadNotifications
+                self.tabBarController?.tabBar.items?[2].badgeValue = numUnreadNotifications == "0" ? nil : numUnreadNotifications
                 self.tableView.beginHeaderRefreshing()
             }
         }
