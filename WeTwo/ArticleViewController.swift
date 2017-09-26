@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import KMPlaceholderTextView
 
 class Comment {
     var comment: String = ""
@@ -37,12 +38,12 @@ class Comment {
     }
 }
 
-class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentTableView: UITableView!
-    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var commentTextView: KMPlaceholderTextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
     var articleId = 0
@@ -61,11 +62,14 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         commentTableView.rowHeight = UITableViewAutomaticDimension
         commentTableView.estimatedRowHeight = 44.0
 
-        commentTextField.delegate = self
+        commentTextView.delegate = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
+        commentTextView.layer.borderWidth = 1.0
+        commentTextView.layer.cornerRadius = 5.0
+        commentTextView.layer.borderColor = UIColor.lightGray.cgColor
 
         // Do any additional setup after loading the view.
         reloadArticle()
@@ -119,8 +123,8 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func keyboardWillHide(_ note: NSNotification) {
         parentCommentId = 0
-        commentTextField.text = ""
-        commentTextField.placeholder = "评论"
+        commentTextView.text = ""
+        commentTextView.placeholder = "评论"
     }
 
     func extractComments(_ commentsJson: JSON) {
@@ -151,16 +155,18 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         parentCommentId = comments[indexPath.row].commentId
-        commentTextField.placeholder = "回复 " + comments[indexPath.row].userName + ":"
-        commentTextField.becomeFirstResponder()
+        commentTextView.placeholder = "回复 " + comments[indexPath.row].userName + ":"
+        commentTextView.becomeFirstResponder()
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let comment = textField.text!
-        postComment(articleId: articleId, comment: comment, parentCommentId: parentCommentId, callBack: {
-            self.reloadArticle()
-        })
-        textField.resignFirstResponder()
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            let comment = textView.text!
+            postComment(articleId: articleId, comment: comment, parentCommentId: parentCommentId, callBack: {
+                self.reloadArticle()
+            })
+            textView.resignFirstResponder()
+        }
         return true
     }
 
