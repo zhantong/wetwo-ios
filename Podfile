@@ -7,4 +7,5 @@ target 'WeTwo' do
   pod 'SwiftyJSON'
   pod 'Toast-Swift', '~> 2.0.0'
   pod "PullToRefreshKit"
+  pod 'GrowingTextView'
 end

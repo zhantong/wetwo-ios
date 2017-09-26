@@ -8,7 +8,7 @@
 
 import UIKit
 
-let baseUrl = "http://192.168.1.2:5000/"
+let baseUrl = "http://wetwo.polarxiong.com/"
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 

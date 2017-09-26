@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import KMPlaceholderTextView
+import GrowingTextView
 
 class Comment {
     var comment: String = ""
@@ -43,7 +43,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentTableView: UITableView!
-    @IBOutlet weak var commentTextView: KMPlaceholderTextView!
+    @IBOutlet weak var commentTextView: GrowingTextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
     var articleId = 0
@@ -124,7 +124,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     func keyboardWillHide(_ note: NSNotification) {
         parentCommentId = 0
         commentTextView.text = ""
-        commentTextView.placeholder = "评论"
+        commentTextView.placeHolder = "评论"
     }
 
     func extractComments(_ commentsJson: JSON) {
@@ -155,7 +155,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         parentCommentId = comments[indexPath.row].commentId
-        commentTextView.placeholder = "回复 " + comments[indexPath.row].userName + ":"
+        commentTextView.placeHolder = "回复 " + comments[indexPath.row].userName + ":"
         commentTextView.becomeFirstResponder()
     }
 
